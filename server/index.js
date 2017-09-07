@@ -15,6 +15,7 @@ app.use('/api', api)
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
 config.dev = !(process.env.NODE_ENV === 'production')
+console.log('nuxt.config.js', config.env)
 
 // Init Nuxt.js
 const nuxt = new Nuxt(config)
