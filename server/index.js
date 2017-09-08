@@ -14,7 +14,7 @@ app.use('/api', api)
 
 // Import and Set Nuxt.js options
 let config = require('../nuxt.config.js')
-config.dev = !(process.env.NODE_ENV === 'production')
+config.dev = process.env.NODE_CONFIG === 'dev'
 console.log('nuxt.config.js', config.env)
 
 // Init Nuxt.js
@@ -30,5 +30,5 @@ if (config.dev) {
 app.use(nuxt.render)
 
 // Listen the server
-app.listen(port, host)
+app.listen(port)
 console.log('Server listening on ' + host + ':' + port) // eslint-disable-line no-console
