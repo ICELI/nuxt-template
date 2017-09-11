@@ -13,7 +13,7 @@ module.exports = {
   // 中台地址
   CENTER_ADDRESS: 'http://center.jmexpert.com',
   // 图片上传服务器
-  UPLOAD_ADDRESS: 'http://image5.jm.com',
+  UPLOAD_ADDRESS: 'http://image5.jumore.com',
   // 图片服务器
   IMG_ADDRESS: 'http://img.jumore.com',
 }

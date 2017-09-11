@@ -22,7 +22,7 @@
                 </li>
 
                 <li>
-                  <nuxt-link :to="{ path: `/experts` }">媒体采访<small>Media interview</small>
+                  <nuxt-link :to="{ path: `/search` }">媒体采访<small>Media interview</small>
                   </nuxt-link>
                 </li>
               </ul>
@@ -38,7 +38,7 @@
             <div class="sub-nav">
               <ul>
                 <li>
-                  <nuxt-link :to="{ path: `/experts` }">我要咨询专家<small>I want my consultant</small>
+                  <nuxt-link :to="{ path: `/search` }">我要咨询专家<small>I want my consultant</small>
                   </nuxt-link>
                 </li>
 

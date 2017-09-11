@@ -1,10 +1,10 @@
 import { Router } from 'express'
 
-import users from './users'
+import setCasToken from './setCasToken'
 
 const router = Router()
 
-// Add USERS Routes
-router.use(users)
+// Add Routes
+router.use(setCasToken)
 
 export default router
