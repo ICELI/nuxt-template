@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import address from '~/config'
-
+console.log('filters address', address)
 const filters = [
   {
     name: 'imgCdn',

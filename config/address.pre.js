@@ -1,5 +1,6 @@
 /**
  * 预发环境
+ * 服务器地址 只能是域名 不能为IP
  * @type {{IMG_ADDRESS: string, SERVER_ADDRESS: string, USERCENTER_ADDRESS: string, CENTER_ADDRESS: string, CDN_ADDRESS: string, UPLOAD_ADDRESS: string}}
  */
 

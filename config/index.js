@@ -1,18 +1,13 @@
-let env = process.env.Node_CONFIG || 'dev'
 let config
 
-switch (env) {
-  case 'test':
-    config = require('./address.test')
-    break
-  case 'pre':
-    config = require('./address.pre')
-    break
-  case 'prod':
-    config = require('./address.prod')
-    break
-  default:
-    config = require('./address.dev')
+if (process.env.NODE_CONFIG === 'test') {
+  config = require('./address.test')
+} else if (process.env.NODE_CONFIG === 'pre') {
+  config = require('./address.pre')
+} else if (process.env.NODE_CONFIG === 'prod') {
+  config = require('./address.prod')
+} else if (process.env.NODE_CONFIG === 'dev') {
+  config = require('./address.pre')
 }
 
 module.exports = config

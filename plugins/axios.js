@@ -15,6 +15,6 @@ if (!process.browser) {
   options.baseURL = address.SERVER_ADDRESS
 }
 
-console.log(`axios ${process.server}`, options)
+console.log(`axios ${process.browser}`, options)
 
 export default axios.create(options)
