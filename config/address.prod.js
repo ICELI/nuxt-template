@@ -6,7 +6,7 @@
 
 module.exports = {
   // CDN 服务器
-  CDN_ADDRESS: 'http://127.0.0.1:3000/_nuxt/',
+  CDN_ADDRESS: 'http://127.0.0.1:3003/_nuxt/',
   // API 服务器
   SERVER_ADDRESS: 'http://www.jmexpert.com',
   // 认证中心

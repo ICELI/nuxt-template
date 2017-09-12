@@ -1,13 +1,12 @@
 const address = require('./config')
 
-console.log('address', address)
-console.log('process.env.NODE_CONFIG', process.env.NODE_CONFIG)
-console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+// console.log('address', address)
+// console.log('process.env.NODE_CONFIG', process.env.NODE_CONFIG)
+// console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 
 module.exports = {
   env: {
-    NODE_CONFIG: process.env.NODE_CONFIG || 'dev',
-    NODE_ENV: process.env.NODE_ENV || 'development'
+    NODE_CONFIG: process.env.NODE_CONFIG || 'dev'
   },
   // 设置缓存
   // 默认
