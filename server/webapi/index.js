@@ -1,20 +1,19 @@
 import { Router } from 'express'
 
-import advantageExpertInfo from './advantageExpertInfo'
-import betweenExpertBanner from './betweenExpertBanner'
-import contactBill from './contactBill'
-import detailedExpertInfo from './detailedExpertInfo'
-import expertAttribute from './expertAttribute'
-import favorite from './favorite'
-import indexBanner from './indexBanner'
-import indexBannerBottom from './indexBannerBottom'
-import indexBottomMenu from './indexBottomMenu'
-import indexIndustryExp from './indexIndustryExp'
-import InterviewBill from './InterviewBill'
-import notFavorite from './notFavorite'
-import pageExpertInfo from './pageExpertInfo'
-import pageResearchReport from './pageResearchReport'
-import researchReport from './researchReport'
+import advantageExpertInfo from './home/advantageExpertInfo'
+import betweenExpertBanner from './home/betweenExpertBanner'
+import contactBill from './experts/contactBill'
+import detailedExpertInfo from './experts/detailedExpertInfo'
+import expertAttribute from './experts/expertAttribute'
+import favorite from './search/favorite'
+import indexBanner from './home/indexBanner'
+import indexBannerBottom from './home/indexBannerBottom'
+import indexBottomMenu from './home/indexBottomMenu'
+import indexIndustryExp from './home/indexIndustryExp'
+import InterviewBill from './experts/InterviewBill'
+import pageExpertInfo from './search/pageExpertInfo'
+import pageResearchReport from './experts/pageResearchReport'
+import researchReport from './experts/researchReport'
 
 const router = Router()
 
@@ -30,7 +29,6 @@ router.use(indexBannerBottom)
 router.use(indexBottomMenu)
 router.use(indexIndustryExp)
 router.use(InterviewBill)
-router.use(notFavorite)
 router.use(pageExpertInfo)
 router.use(pageResearchReport)
 router.use(researchReport)

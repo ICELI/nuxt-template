@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import axios from '../../plugins/axios'
+import axios from '../../../plugins/axios'
 
 const router = Router()
 

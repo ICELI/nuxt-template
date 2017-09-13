@@ -465,7 +465,7 @@
             }
           })
         } else {
-          axios.get(`/webapi/v2/notFavorite/1/${this.expertId}`).then(({data}) => {
+          axios.delete(`/webapi/v2/favorite/1/${this.expertId}`).then(({data}) => {
             if (data.statusCode === 200) {
               this.detail.isFavorite = 0
             }

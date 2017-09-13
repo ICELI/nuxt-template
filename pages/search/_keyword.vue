@@ -157,13 +157,13 @@ export default {
         try {
           // TODO: 判断收藏还是取消收藏
           this.$set(expert, 'loading', true)
-          let path = 'favorite'
+          let httpType = 'get'
 
           if (expert.isFavorite === 1) {
-            path = 'notFavorite'
+            httpType = 'delete'
           }
 
-          const { data } = await axios.get(`/webapi/v2/${path}/1/${expert.id}`)
+          const { data } = await axios[httpType](`/webapi/v2/favorite/1/${expert.id}`)
           this.$set(expert, 'loading', false)
 
           if (data.statusCode !== 200) {
