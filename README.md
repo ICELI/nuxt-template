@@ -17,7 +17,7 @@
     - `$ yarn run build:prod` 项目构建 `build:test`,`build:pre`,`build:prod`
 2. 部署代码至对应服务器
     - Copy `.nuxt/dist` 至 静态资源服务
-    - Copy `.nuxt/`,`build/`,`static/`,`package.json` 至 Node.js server
+    - Copy `.nuxt/`,`build/`,`static/`,`package.json`，`ecosystem.config.js` 至 Node.js server
 3. 启动/重载Node.js服务
     - `$ yarn install --production` 安装生产环境依赖包
     - `$ yarn run deploy:prod`启动/重载服务 `deploy:test`,`deploy:pre`,`deploy:prod`
