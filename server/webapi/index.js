@@ -14,6 +14,8 @@ import InterviewBill from './experts/InterviewBill'
 import pageExpertInfo from './search/pageExpertInfo'
 import pageResearchReport from './experts/pageResearchReport'
 import researchReport from './experts/researchReport'
+import userInfo from './userInfo'
+import validateLoginInfo from './validateLoginInfo'
 
 const router = Router()
 
@@ -32,5 +34,7 @@ router.use(InterviewBill)
 router.use(pageExpertInfo)
 router.use(pageResearchReport)
 router.use(researchReport)
+router.use(userInfo)
+router.use(validateLoginInfo)
 
 export default router

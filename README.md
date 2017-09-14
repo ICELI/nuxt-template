@@ -14,11 +14,10 @@
 1. 构建代码
     - `$ git clone http://git.jm.com/FE-team/nuxt-template.git` 下载项目代码
     - `$ yarn` 下载所有依赖包
-    - `$ yarn run build` 项目构建
+    - `$ yarn run build:prod` 项目构建 `build:test`,`build:pre`,`build:prod`
 2. 部署代码至对应服务器
     - Copy `.nuxt/dist` 至 静态资源服务
     - Copy `.nuxt/`,`build/`,`static/`,`package.json` 至 Node.js server
 3. 启动/重载Node.js服务
     - `$ yarn install --production` 安装生产环境依赖包
-    - `$ pm2 start build/main.js`  首次使用时，基于pm2启动服务
-    - `$ pm2 reload 0` 有后续发布时，重载服务
+    - `$ yarn run deploy:prod`启动/重载服务 `deploy:test`,`deploy:pre`,`deploy:prod`

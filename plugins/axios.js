@@ -3,6 +3,7 @@ import address from '../config'
 
 let options = {
   timeout: 5000,
+  withCredentials: true,
   headers: {
     post: {
       'Content-Type': 'application/json'

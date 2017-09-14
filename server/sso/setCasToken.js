@@ -10,7 +10,24 @@ router.get('/setCasToken', function (req, res) {
     }
   }).
     then((response) => {
-      console.log('response', response.data)
+      console.log('response', response.headers)
+      response.headers['set-cookie'] && res.set('Set-Cookie', response.headers['set-cookie'])
+      res.json(response.data)
+    }).
+    catch((err) => {
+      console.log('catch', err)
+      res.json(err)
+    })
+})
+
+router.get('/ajaxLoginByToken', function (req, res) {
+  return axios.get(`/sso/ajaxLoginByToken`, {
+    params: {
+      ...req.query
+    }
+  }).
+    then((response) => {
+      console.log('response', response.headers)
       res.json(response.data)
     }).
     catch((err) => {

@@ -1,8 +1,8 @@
 const address = require('./config')
 
-// console.log('address', address)
-// console.log('process.env.NODE_CONFIG', process.env.NODE_CONFIG)
-// console.log('process.env.NODE_ENV', process.env.NODE_ENV)
+console.log('address', address)
+console.log('process.env.NODE_CONFIG', process.env.NODE_CONFIG)
+console.log('process.env.NODE_ENV', process.env.NODE_ENV)
 
 module.exports = {
   env: {
