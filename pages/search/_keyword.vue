@@ -60,6 +60,7 @@
 
 <script>
 import axios from '~/plugins/axios'
+import utils from '~/plugins/utils'
 
 export default {
   name: 'experts',
@@ -114,9 +115,8 @@ export default {
    * @return {[Undefined]}               [无返回值]
    */
   async asyncData ({params, store }) {
-    let keyword = params.keyword || ''
-    let key = keyword.replace('.html', '')
-    let startIndex = key
+    let args = utils.parseParams(params, 'keyword')
+    let startIndex = args[0]
 
     console.log(startIndex)
 

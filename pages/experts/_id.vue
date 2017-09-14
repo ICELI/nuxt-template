@@ -360,6 +360,7 @@
 
 <script>
   import axios from '~/plugins/axios'
+  import utils from '~/plugins/utils'
 
   export default {
     name: 'expert-layout',
@@ -419,7 +420,7 @@
       }
     },
     async asyncData ({params}) {
-      let args = params.id.replace('.html', '').split('_')
+      let args = utils.parseParams(params, 'id')
       let expertId = args[0]
       let expertType = args[1]
       try {

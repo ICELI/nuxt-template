@@ -70,6 +70,7 @@ module.exports = {
     '~plugins/filter',
     '~plugins/directive',
     '~plugins/checkLogin',
+    '~plugins/utils',
     { src: '~plugins/baidu', ssr: false }],
 
   build: {
