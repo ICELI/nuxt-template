@@ -7,8 +7,9 @@ module.exports = {
 
     // First application
     {
-      name      : 'jtt',
       script    : './build/main.js',
+      exec_mode : 'cluster',
+      instances : 'max',
       env: {
         PORT: 3000,
         NODE_CONFIG: 'dev',
