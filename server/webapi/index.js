@@ -1,40 +1,35 @@
 import { Router } from 'express'
+import r from '../../plugins/router'
 
-import advantageExpertInfo from './home/advantageExpertInfo'
-import betweenExpertBanner from './home/betweenExpertBanner'
-import contactBill from './experts/contactBill'
-import detailedExpertInfo from './experts/detailedExpertInfo'
-import expertAttribute from './experts/expertAttribute'
-import favorite from './search/favorite'
-import indexBanner from './home/indexBanner'
-import indexBannerBottom from './home/indexBannerBottom'
-import indexBottomMenu from './home/indexBottomMenu'
-import indexIndustryExp from './home/indexIndustryExp'
-import InterviewBill from './experts/InterviewBill'
-import pageExpertInfo from './search/pageExpertInfo'
-import pageResearchReport from './experts/pageResearchReport'
-import researchReport from './experts/researchReport'
-import userInfo from './userInfo'
-import validateLoginInfo from './validateLoginInfo'
+const routers = {
+  get: [
+    '/v2/advantageExpertInfo',
+    '/v2/betweenExpertBanner',
+    '/v2/contactBill',
+    '/v2/indexBanner',
+    '/v2/indexBannerBottom',
+    '/v2/indexBottomMenu',
+    '/v2/pageExpertInfo',
+    '/v2/pageResearchReport',
+    '/v2/researchReport',
+    '/v2/userInfo',
+    '/v2/detailedExpertInfo/:id',
+    '/v2/expertAttribute/:id',
+    '/v2/favorite/1/:id',
+    '/v2/notFavorite/1/:id'
+  ],
+  post: [
+    '/v2/InterviewBill',
+    '/v2/validateLoginInfo',
+  ]
+}
 
 const router = Router()
 
-// Add Routes
-router.use(advantageExpertInfo)
-router.use(betweenExpertBanner)
-router.use(contactBill)
-router.use(detailedExpertInfo)
-router.use(expertAttribute)
-router.use(favorite)
-router.use(indexBanner)
-router.use(indexBannerBottom)
-router.use(indexBottomMenu)
-router.use(indexIndustryExp)
-router.use(InterviewBill)
-router.use(pageExpertInfo)
-router.use(pageResearchReport)
-router.use(researchReport)
-router.use(userInfo)
-router.use(validateLoginInfo)
+for(let key in routers) {
+  routers[key].forEach(function (v) {
+    router.use(r(key, v, '/webapi'))
+  })
+}
 
 export default router
