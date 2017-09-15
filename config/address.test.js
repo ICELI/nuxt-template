@@ -6,15 +6,15 @@
 
 module.exports = {
   // CDN 服务器
-  CDN_ADDRESS: 'http://127.0.0.1:3001/_nuxt/',
+  CDN_ADDRESS: 'http://127.0.0.1:3000/_nuxt/',
   // API 服务器
-  SERVER_ADDRESS: 'http://www.jmexpert.com',
+  SERVER_ADDRESS: 'http://webapi.jtt.com',
   // 认证中心
-  USERCENTER_ADDRESS: 'http://passport.jumore.com/cas/',
+  USERCENTER_ADDRESS: 'http://test-uc3.dev.com',
   // 中台地址
-  CENTER_ADDRESS: 'http://center.jmexpert.com',
+  CENTER_ADDRESS: 'http://center.jtt.com',
   // 图片上传服务器
-  UPLOAD_ADDRESS: 'http://image5.jumore.com',
+  UPLOAD_ADDRESS: 'http://image5.jm.com',
   // 图片服务器
-  IMG_ADDRESS: 'http://img.jumore.com',
+  IMG_ADDRESS: 'http://image.jm.com',
 }
