@@ -38,8 +38,8 @@
       }
     },
     validate ({params}) {
-      // Must be a number
-      return params.reports.replace('.html', '') === 'reports'
+      // Must be the name
+      return utils.checkParams(params, this.name)
     },
     async asyncData ({params}) {
       let args = utils.parseParams(params, 'id')

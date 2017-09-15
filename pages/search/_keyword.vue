@@ -105,9 +105,8 @@ export default {
 
   validate ({ params }) {
     let keyword = params.keyword || ''
-    let key = keyword.includes('.html')
     // Must be a number
-    return keyword === '' || !!key
+    return keyword === '' || keyword.includes('.html')
   },
   /**
    * [asyncData Nuxt.js 服务端渲染函数]
