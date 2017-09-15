@@ -26,115 +26,120 @@
   </div>
 </template>
 <script>
-    import axios from '~/plugins/axios'
-    export default {
-      name: 'reports',
-      data () {
-        return {
-          limit: 3,
-          offset: 0
-        }
-      },
-      validate ({ params }) {
-        // Must be a number
-        return params.reports.replace('.html', '') === 'reports'
-      },
-      async asyncData ({params}) {
-        let args = params.id.replace('.html', '').split('_')
-        let expertId = args[0]
-        let expertType = args[1]
+  import axios from '~/plugins/axios'
+  import utils from '~/plugins/utils'
 
-        try {
-          const { data } = await axios.get(`/webapi/v2/pageResearchReport?expertId=${expertId}&offset=0&limit=3`)
-          return {
-            expertId: expertId,
-            expertType: expertType,
-            reports: data.rows,
-            totalSize: data.totalSize
-          }
-        } catch (e) {
-          console.log(e)
+  export default {
+    name: 'reports',
+    data () {
+      return {
+        limit: 3,
+        offset: 0
+      }
+    },
+    validate ({params}) {
+      // Must be a number
+      return params.reports.replace('.html', '') === 'reports'
+    },
+    async asyncData ({params}) {
+      let args = utils.parseParams(params, 'id')
+      let expertId = args[0]
+      let expertType = args[1]
+
+      try {
+        const {data} = await axios.get(`/webapi/v2/pageResearchReport?expertId=${expertId}&offset=0&limit=3`)
+        return {
+          expertId: expertId,
+          expertType: expertType,
+          reports: data.rows,
+          totalSize: data.totalSize
         }
-      },
-      methods: {
-        async getMore () {
-          this.offset += this.limit
-          const { data } = await axios.get(`/webapi/v2/pageResearchReport?expertId=${expertId}&offset=${this.offset}&limit=${this.limit}`)
-          this.reports = [...this.reports, ...data.rows]
-          this.totalSize = data.totalSize
-        }
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    methods: {
+      async getMore () {
+        this.offset += this.limit
+        const {data} = await axios.get(
+          `/webapi/v2/pageResearchReport?expertId=${expertId}&offset=${this.offset}&limit=${this.limit}`)
+        this.reports = [...this.reports, ...data.rows]
+        this.totalSize = data.totalSize
       }
     }
+  }
 </script>
 <style lang="scss" rel="stylesheet/scss" type="text/scss" scoped>
-    // 研报列表
-    .research-report {
-        padding: 90px 0;
+  // 研报列表
+  .research-report {
+    padding: 90px 0;
+  }
+
+  .report-more {
+    display: inline-block;
+    font-size: 14px;
+    width: 92px;
+    height: 50px;
+    background: url("~/assets/img/arrow-down12.png") 33px 22px no-repeat;
+    &:hover {
+      color: #2788e8;
+      background-image: url("~/assets/img/arrow-down-blue12.png");
     }
-    .report-more {
-        display: inline-block;
-        font-size: 14px;
-        width: 92px;
-        height: 50px;
-        background: url("~/assets/img/arrow-down12.png") 33px 22px no-repeat;
-        &:hover{
-            color: #2788e8;
-            background-image: url("~/assets/img/arrow-down-blue12.png");
-        }
+  }
+
+  .report-list {
+    margin: 35px 0 0 -20px;
+    li {
+      width: 383px;
+      height: 457px;
+      position: relative;
+      margin: 60px 0px 20px 20px;
+      padding: 90px 30px 36px;
+      background: #e9f3fd;
+      float: left;
     }
-    .report-list {
-        margin: 35px 0 0 -20px;
-        li {
-            width: 383px;
-            height: 457px;
-            position: relative;
-            margin: 60px 0px 20px 20px;
-            padding: 90px 30px 36px;
-            background: #e9f3fd;
-            float: left;
-        }
-        .img-box {
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            margin-left: -60px;
-            height: 120px;
-            width: 120px;
-            border: 1px solid #ccc;
-            border-radius: 50%;
-            img{
-                width: 100%;
-                height: 100%;
-            }
-        }
-        .report-title{
-            font-size: 18px;
-            line-height:28px;
-            color: #3e3e3e;
-            text-align: center;
-            font-weight:normal;
-        }
-        .report-layout > time {
-            display: block;
-            text-align: right;
-            font-size: 14px;
-            margin: 18px 0;
-        }
-        .report-content{
-            font-size: 14px;
-            word-break: break-all;
-            line-height: 28px;
-            color: #6e6e6e;
-            text-align: left;
-        }
-        .report-detail{
-            color: #2788e8;
-            font-size:12px;
-            position: absolute;
-            text-align: center;
-            left: 0;
-            bottom: 20px;
-            width: 383px;
-        }
+    .img-box {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      margin-left: -60px;
+      height: 120px;
+      width: 120px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
+    .report-title {
+      font-size: 18px;
+      line-height: 28px;
+      color: #3e3e3e;
+      text-align: center;
+      font-weight: normal;
+    }
+    .report-layout > time {
+      display: block;
+      text-align: right;
+      font-size: 14px;
+      margin: 18px 0;
+    }
+    .report-content {
+      font-size: 14px;
+      word-break: break-all;
+      line-height: 28px;
+      color: #6e6e6e;
+      text-align: left;
+    }
+    .report-detail {
+      color: #2788e8;
+      font-size: 12px;
+      position: absolute;
+      text-align: center;
+      left: 0;
+      bottom: 20px;
+      width: 383px;
+    }
+  }
 </style>
