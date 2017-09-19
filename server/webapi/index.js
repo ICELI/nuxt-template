@@ -21,6 +21,7 @@ const routers = {
   post: [
     '/v2/InterviewBill',
     '/v2/validateLoginInfo',
+    '/v2/doLogin',
   ]
 }
 

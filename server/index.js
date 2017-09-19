@@ -1,4 +1,5 @@
 import express from 'express'
+import bodyParser from 'body-parser'
 import { Nuxt, Builder } from 'nuxt'
 
 import api from './webapi'
@@ -10,6 +11,8 @@ const port = process.env.PORT || 3000
 
 app.set('port', port)
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 // Import API Routes
 app.use('/webapi', api)
 app.use('/sso', sso)

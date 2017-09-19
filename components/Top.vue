@@ -14,7 +14,7 @@
           <img class="header-img" v-if="user.headImg" :src="user.headImg | imgCdn" :alt="user.userName">
           <img class="header-img" v-else src="~assets/img/user-photo.png" alt="用户头像"/>
 
-          <a :href="`${centerAddress}/jttoverview/init`" class="user-name text-overflow">{{user.userName}}</a>
+          <a :href="`${centerAddress}/jttoverview/init`" class="user-name text-overflow">{{user.nickName}}</a>
           <div class="actions">
             <p>
               <a :href="`${centerAddress}/jttoverview/init`" target="_blank">个人中心</a>

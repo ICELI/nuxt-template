@@ -14,16 +14,16 @@ function routerWrapper (type, path, context) {
     path = path.replace(regex, function (id) {
       return req.params[id.substring(1)]
     })
-
-    return axios[type](context + path, {
+console.log(context + path, req.body)
+    return axios[type](context + path, type === 'post' ? req.body : {
       params: {
         ...req.query // 透传search参数
       }
     }).then((response) => {
-      console.log(response.data)
+      console.log(context + path, response)
       res.json(response.data)
     }).catch((err) => {
-      console.log(err.data)
+      console.log(context + path, err)
       res.json(err.data)
     })
   })

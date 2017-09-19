@@ -28,6 +28,7 @@ router.get('/ajaxLoginByToken', function (req, res) {
   }).
     then((response) => {
       console.log('response', response.headers)
+      response.headers['set-cookie'] && res.set('Set-Cookie', response.headers['set-cookie'])
       res.json(response.data)
     }).
     catch((err) => {
